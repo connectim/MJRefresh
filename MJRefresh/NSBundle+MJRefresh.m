@@ -40,22 +40,8 @@
     static NSString* lastLanguage = nil;
     NSString *language = [[NSUserDefaults standardUserDefaults] objectForKey:@"userCurrentLanguage"];
     if (language.length == 0) {
-        //获得当前系统的语言
-         language = [NSLocale preferredLanguages].firstObject;
-        if ([language hasPrefix:@"en"]) {
-            language = @"en";
-        } else if ([language hasPrefix:@"zh"]) {
-            if ([language rangeOfString:@"Hans"].location != NSNotFound) {
-                language = @"zh-Hans"; // 简体中文
-            } else { // zh-Hant\zh-HK\zh-TW
-                language = @"zh-Hant"; // 繁體中文
-            }
-        } else if([language hasPrefix:@"ru"]){
-            language = @"ru";
-        }else
-        {
-             language = @"en";
-        }
+          //获得当前系统的语言
+           language = @"en";
     }
     if (![lastLanguage isEqualToString:language]) {
         if (language.length == 0) {
