@@ -39,6 +39,10 @@
     static NSBundle *bundle = nil;
     static NSString* lastLanguage = nil;
     NSString *language = [[NSUserDefaults standardUserDefaults] objectForKey:@"userCurrentLanguage"];
+    if (language.length == 0) {
+          //获得当前系统的语言
+           language = @"en";
+    }
     if (![lastLanguage isEqualToString:language]) {
         if (language.length == 0) {
             language = @"en";
